@@ -123,6 +123,10 @@ func main() {
 		input, _ := reader.ReadByte()
 		inputstring += string(input)
 
+		if !autostart {
+			time.Sleep(2 * time.Second)
+		}
+
 		autostart = true
 
 		if strings.Contains(inputstring, password) {
