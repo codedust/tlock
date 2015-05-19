@@ -17,10 +17,10 @@ func main() {
 	// Config
 	var password string = "secretpassword"
 	var bgcolors bool = true
-	var jail bool = true
-	var scanner bool = false
+	var jail bool = false
+	var scanner bool = true
 	var cross bool = false
-	var faster bool = true
+	var faster bool = false
 	var autostart bool = false
 
 	// Init
@@ -117,12 +117,15 @@ func main() {
 	}()
 
 	// Password check
+	inputstring := ""
+
 	for {
-		input, _ := reader.ReadString('\n')
+		input, _ := reader.ReadByte()
+		inputstring += string(input)
 
 		autostart = true
 
-		if strings.Contains(input, password) {
+		if strings.Contains(inputstring, password) {
 			return
 		}
 	}
